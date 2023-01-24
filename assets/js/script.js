@@ -8,20 +8,20 @@ let start = document.getElementById("start");
 //FIRST:  Create start button (created in HTML)
 start.addEventListener("click", function () {
     setTime(); 
+    startQuiz();
     console.log('ok');
     
 })
 
 //SECOND: Start button starts a timer 
-var timer = document.querySelector(".timer");
-var secondsLeft = 76
 
 function setTime() {
+    var timer = document.querySelector(".timer");
+    var secondsLeft = 76
   // Sets interval in variable
   var timerInterval = setInterval(function() {
     secondsLeft--;
     timer.textContent = secondsLeft + " seconds left in the game.";
-    console.log(secondsLeft);
 
     if(secondsLeft === 0) {
       // Stops execution of action at set interval
@@ -29,7 +29,7 @@ function setTime() {
       // Calls function to create and append image
       sendMessage();
     }
-
+ 
   }, 1000);
 }
 
@@ -38,10 +38,13 @@ function sendMessage() {
   timer.textContent = "Game Over";
 }
 
-setTime();
+
 
 //THIRD: First question is presented after timer is started 
-// var startQuiz = 
+function startQuiz() {
+    console.log("you started the quiz")
+
+} 
 
 
 //Questions 
