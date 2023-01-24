@@ -43,6 +43,9 @@ function sendMessage() {
 //THIRD: First question is presented after timer is started 
 function startQuiz() {
     console.log("you started the quiz")
+    document.getElementById("welcome").style.display = "none";
+    document.getElementById("questionBoxOne").style.display = "block";
+
 
 } 
 
