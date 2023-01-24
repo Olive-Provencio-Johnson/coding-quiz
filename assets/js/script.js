@@ -1,20 +1,70 @@
-var timer = 76;
-var start = ""; 
 var highscores = "";
 var goBack = ""; 
+var timeSubtraction = ""; 
+
+let start = document.getElementById("start");
 
 
-//Create start button 
+//FIRST:  Create start button (created in HTML)
+start.addEventListener("click", function () {
+    setTime(); 
+    console.log('ok');
+    
+})
 
-//start button starts a timer 
+//SECOND: Start button starts a timer 
+var timer = document.querySelector(".timer");
+var secondsLeft = 76
 
-//First question is presented after timer is started 
+function setTime() {
+  // Sets interval in variable
+  var timerInterval = setInterval(function() {
+    secondsLeft--;
+    timer.textContent = secondsLeft + " seconds left in the game.";
+    console.log(secondsLeft);
 
-//When a question is answered, the next question is presented 
+    if(secondsLeft === 0) {
+      // Stops execution of action at set interval
+      clearInterval(timerInterval);
+      // Calls function to create and append image
+      sendMessage();
+    }
 
-//When a question is answered incorrectly, time is subtracted from the clock 
+  }, 7600);
+}
+
+// Function to stop game 
+function sendMessage() {
+  timer.textContent = "Game Over";
+}
+
+setTime();
+
+//THIRD: First question is presented after timer is started 
+var startQuiz = 
 
 
-//The game is OVER when all questions are answered OR the timer reaches 0
+//Questions 
+var quizQuestions = [
+    {
+        questionOne: "Which geometric shape is generally used for stop signs?", 
+        options: {
+            a: 'Octagon',
+            b: 'Hexagon',
+            c: "Decagon", 
+            d: "Heptagon",
+        }, 
+    }
+]
 
-//When the game is over, the user can save their initials AND their score
+function quizQuestions(){
+
+}
+
+//FOURTH When a question is answered, the next question is presented 
+
+//FIFTH When a question is answered incorrectly, time is subtracted from the clock 
+
+
+// SIXTH The game is OVER when all questions are answered OR the timer reaches 0
+// SEVENTH When the game is over the user can save their initials AND their score
