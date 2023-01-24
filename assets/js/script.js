@@ -45,6 +45,8 @@ function startQuiz() {
     console.log("you started the quiz")
     document.getElementById("welcome").style.display = "none";
     document.getElementById("questionBoxOne").style.display = "block";
+    //below syntax may be used to change the questions as they are answered. 
+    document.getElementById(question).innerHTML = new HTML
 
 
 } 
