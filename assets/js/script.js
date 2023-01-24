@@ -30,7 +30,7 @@ function setTime() {
       sendMessage();
     }
 
-  }, 7600);
+  }, 1000);
 }
 
 // Function to stop game 
@@ -41,25 +41,25 @@ function sendMessage() {
 setTime();
 
 //THIRD: First question is presented after timer is started 
-var startQuiz = 
+// var startQuiz = 
 
 
 //Questions 
-var quizQuestions = [
-    {
-        questionOne: "Which geometric shape is generally used for stop signs?", 
-        options: {
-            a: 'Octagon',
-            b: 'Hexagon',
-            c: "Decagon", 
-            d: "Heptagon",
-        }, 
-    }
-]
+// var quizQuestions = [
+//     {
+//         questionOne: "Which geometric shape is generally used for stop signs?", 
+//         options: {
+//             a: 'Octagon',
+//             b: 'Hexagon',
+//             c: "Decagon", 
+//             d: "Heptagon",
+//         }, 
+//     }
+// ]
 
-function quizQuestions(){
+// function quizQuestions(){
 
-}
+// }
 
 //FOURTH When a question is answered, the next question is presented 
 
