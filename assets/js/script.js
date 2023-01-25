@@ -1,16 +1,16 @@
 var highscores = "";
-var goBack = ""; 
-var timeSubtraction = ""; 
+var goBack = "";
+var timeSubtraction = "";
 
 let start = document.getElementById("start");
 
 
 //FIRST:  Create start button (created in HTML)
 start.addEventListener("click", function () {
-    setTime(); 
+    setTime();
     startQuiz();
     console.log('ok');
-    
+
 })
 
 //SECOND: Start button starts a timer 
@@ -18,24 +18,24 @@ start.addEventListener("click", function () {
 function setTime() {
     var timer = document.querySelector(".timer");
     var secondsLeft = 76
-  // Sets interval in variable
-  var timerInterval = setInterval(function() {
-    secondsLeft--;
-    timer.textContent = secondsLeft + " seconds left in the game.";
+    // Sets interval in variable
+    var timerInterval = setInterval(function () {
+        secondsLeft--;
+        timer.textContent = secondsLeft + " seconds left in the game.";
 
-    if(secondsLeft === 0) {
-      // Stops execution of action at set interval
-      clearInterval(timerInterval);
-      // Calls function to create and append image
-      sendMessage();
-    }
- 
-  }, 1000);
+        if (secondsLeft === 0) {
+            // Stops execution of action at set interval
+            clearInterval(timerInterval);
+            // Calls function to create and append image
+            sendMessage();
+        }
+
+    }, 1000);
 }
 
 // Function to stop game 
 function sendMessage() {
-  timer.textContent = "Game Over";
+    timer.textContent = "Game Over";
 }
 
 
@@ -48,11 +48,13 @@ function startQuiz() {
     //below syntax may be used to change the questions as they are answered. 
     document.getElementById(question).innerHTML = new HTML
 
+    //call a function for the getNextQuestion function. This is where you will do the iterating 
 
-} 
+
+}
 
 
-//Questions 
+//Questions (iterate over the array)
 // var quizQuestions = [
 //     {
 //         questionOne: "Which geometric shape is generally used for stop signs?", 
