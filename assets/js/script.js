@@ -36,7 +36,8 @@ function setTime() {
     }, 1000);
 }
 
-// Function to stop game 
+//------The game is OVER when all questions are answered OR the timer reaches 0
+// Function to stop game. 
 function sendMessage() {
     timer.textContent = "Game Over";
 }
@@ -206,5 +207,4 @@ var quizQuestions = [
 ]
 
 
-// SIXTH The game is OVER when all questions are answered OR the timer reaches 0
 // SEVENTH When the game is over the user can save their initials AND their score
