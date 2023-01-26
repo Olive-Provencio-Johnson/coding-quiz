@@ -4,6 +4,8 @@ var goBack = "";
 var timeSubtraction = "";
 var questionNumber = 0;
 var correctAnswers = 0;
+var secondsLeft = 76;
+var answerRevealed = "";
 
 let start = document.getElementById("start");
 
@@ -19,7 +21,7 @@ start.addEventListener("click", function () {
 //SECOND: Start button starts a timer 
 function setTime() {
     var timer = document.querySelector(".timer");
-    var secondsLeft = 76
+
     // Sets interval in variable
     var timerInterval = setInterval(function () {
         secondsLeft--;
@@ -54,29 +56,79 @@ function startQuiz() {
     //display the question box element 
     document.getElementById("questionBox").style.display = "block";
 
-    console.log(quizQuestions);
-    console.log(quizQuestions[0].questionTitle);
+    // console.log(quizQuestions);
+    // console.log(quizQuestions[0].questionTitle);
 
     refreshQuestions();
     
 }
 
-
+//The following four functions are only called when the associated button is clicked on, === the correct answer, as called out in the object var quizQuestions below.
 optionOne.addEventListener("click", function () {
     if (quizQuestions[questionNumber].options.one === quizQuestions[questionNumber].answer){
         console.log('Correct!');
         correctAnswers++;
     }
-
-    correctAnswers++;
+    //When a question is answered incorrectly, time is subtracted from the clock 
+    else {
+        secondsLeft = secondsLeft - 10;
+    }
     questionNumber++;
 
     refreshQuestions();
 
+})
+
+optionTwo.addEventListener("click", function () {
+    if (quizQuestions[questionNumber].options.two === quizQuestions[questionNumber].answer){
+        console.log('Correct!');
+        correctAnswers++;
+    }
+    //When a question is answered incorrectly, time is subtracted from the clock 
+    else {
+        secondsLeft = secondsLeft - 10;
+    }
+    questionNumber++;
+
+    refreshQuestions();
 
 })
 
+optionThree.addEventListener("click", function () {
+    if (quizQuestions[questionNumber].options.three === quizQuestions[questionNumber].answer){
+        console.log('Correct!');
+        correctAnswers++;
+    }
+    //When a question is answered incorrectly, time is subtracted from the clock 
+    else {
+        secondsLeft = secondsLeft - 10;
+    }
+
+   
+    questionNumber++;
+
+    refreshQuestions();
+
+})
+
+optionFour.addEventListener("click", function () {
+    if (quizQuestions[questionNumber].options.four === quizQuestions[questionNumber].answer){
+        console.log('Correct!');
+        correctAnswers++;
+    }
+    //When a question is answered incorrectly, time is subtracted from the clock 
+    else {
+        secondsLeft = secondsLeft - 10;
+    }
+    questionNumber++;
+
+    refreshQuestions();
+
+})
+
+//FOURTH When a question is answered, the next question is presented 
 function refreshQuestions() {
+    console.log(questionNumber)
 //relates to the div in HTML where the question will live
 var questionHeaderEl = document.getElementById("question");
 
@@ -84,8 +136,8 @@ var questionHeaderEl = document.getElementById("question");
 questionHeaderEl.textContent = quizQuestions[questionNumber].questionTitle;
 
 //console log the first question and options
-console.log(quizQuestions[0].options);
-console.log(quizQuestions[0].options.one);
+// console.log(quizQuestions[0].options);
+// console.log(quizQuestions[0].options.one);
 
 //variables related to each question "option", e.g. ABC or D 
 var questionOptionOne = document.getElementById("optionOne");
@@ -114,14 +166,13 @@ questionOptionThree.addEventListener("click", selectChoice);
 
 questionOptionFour.addEventListener("click", selectChoice);
 
-//call a function for the getNextQuestion function. This is where you will do the iterating 
 
 // function getNextQuestion() {
 //     // document.getElementById(#question).style.display = "block"; 
 //       //below syntax may be used to change the questions as they are answered. 
 //       document.getElementById(#questionBox).innerHTML = new HTML
 //input Quiz Questions variable somehow 
-//     //   var QuizQuestions = 
+
 }
 
 
@@ -139,32 +190,37 @@ var quizQuestions = [
     },
     {
         questionTitle: "Who was the first woman to win a Nobel Prize (in 1903)?",
+        answer: "Marie Curie",
         options: {
-            one: "x",
+            one: "Jane Addams",
             two: "Marie Curie",
-            three: "x",
-            four: "x",
+            three: "Emily Greene Balch",
+            four: "Baroness Bertha Sophie Felicita von Suttner, née Countess Kinsky von Chinic und Tettau",
         }
     },
     {
         questionTitle: "Who was the first woman pilot to fly solo across the Atlantic?",
+        answer: "Amelia Earhart",
         options: {
-            one: "x",
-            two: "x",
+            one: "Harriet Quimby",
+            two: "Bessie Coleman",
             three: "Amelia Earhart",
-            four: "x",
+            four: "Amy Johnson",
+        }
+    },
+    {
+        questionTitle: "What was the first soft drink in space?",
+        answer: "Coca Cola",
+        options: {
+            one: "Sprite",
+            two: "Pepsi",
+            three: "Coca Cola",
+            four: "Dr. Pepper",
         }
     },
 ]
 
 
-// function quizQuestions(){
-
-// }
-
-//FOURTH When a question is answered, the next question is presented 
-
-//FIFTH When a question is answered incorrectly, time is subtracted from the clock 
 
 
 // SIXTH The game is OVER when all questions are answered OR the timer reaches 0
