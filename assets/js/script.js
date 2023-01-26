@@ -1,6 +1,9 @@
+//variables I may need 
 var highscores = "";
 var goBack = "";
 var timeSubtraction = "";
+var questionNumber = 0;
+var correctAnswers = 0;
 
 let start = document.getElementById("start");
 
@@ -14,7 +17,6 @@ start.addEventListener("click", function () {
 })
 
 //SECOND: Start button starts a timer 
-
 function setTime() {
     var timer = document.querySelector(".timer");
     var secondsLeft = 76
@@ -26,7 +28,6 @@ function setTime() {
         if (secondsLeft === 0) {
             // Stops execution of action at set interval
             clearInterval(timerInterval);
-            // Calls function to create and append image
             sendMessage();
         }
 
@@ -38,7 +39,7 @@ function sendMessage() {
     timer.textContent = "Game Over";
 }
 
-//used for selecting choices within each question, function below 
+//function used for selecting choices within each question
 function selectChoice() {
     console.log("click")
 }
@@ -49,82 +50,111 @@ function startQuiz() {
     console.log("you started the quiz")
     //hide welcome message once start quiz button is clicked
     document.getElementById("welcome").style.display = "none";
+
     //display the question box element 
     document.getElementById("questionBox").style.display = "block";
 
     console.log(quizQuestions);
     console.log(quizQuestions[0].questionTitle);
 
-    //relates to the div in HTML where the question will live
-    var questionHeaderEl = document.getElementById("question");
-
-    //take the variable created above and use .textContent to input the first quiz question 
-    questionHeaderEl.textContent = quizQuestions[0].questionTitle;
-
-//console log the first question and options
-    console.log(quizQuestions[0].options)
-    console.log(quizQuestions[0].options.a)
-
-    var questionOption1 = document.getElementById("option1")
-    var questionOption2 = document.getElementById("option2")
-    var questionOption3 = document.getElementById("option3")
-    var questionOption4 = document.getElementById("option4")
-
-    questionOption1.textContent = quizQuestions[0].options.a;
-
-    questionOption2.textContent = quizQuestions[0].options.b;
-
-    questionOption3.textContent = quizQuestions[0].options.c;
-
-    questionOption4.textContent = quizQuestions[0].options.d;
-
-    //create a method to have the (1) correct answer identified, and (2) once the answer is revealed, have the current question hide, (3) and the next question revealed 
-
-    //Eventlistener, followed by a function that will (1) identify "wrong" or "correct" THEN move to the next question 
-
- questionOption1.addEventListener("click", selectChoice);
-
- questionOption2.addEventListener("click", selectChoice);
-
- questionOption3.addEventListener("click", selectChoice);
-
- questionOption4.addEventListener("click", selectChoice);
-
-    //call a function for the getNextQuestion function. This is where you will do the iterating 
-
-    // function getNextQuestion() {
-    //     // document.getElementById(#question).style.display = "block"; 
-    //       //below syntax may be used to change the questions as they are answered. 
-    //       document.getElementById(#questionBox).innerHTML = new HTML
-    //input Quiz Questions variable somehow 
-    //     //   var QuizQuestions = 
+    refreshQuestions();
+    
 }
 
 
-// }
+optionOne.addEventListener("click", function () {
+    if (quizQuestions[questionNumber].options.one === quizQuestions[questionNumber].answer){
+        console.log('Correct!');
+        correctAnswers++;
+    }
 
+    correctAnswers++;
+    questionNumber++;
+
+    refreshQuestions();
+
+
+})
+
+function refreshQuestions() {
+//relates to the div in HTML where the question will live
+var questionHeaderEl = document.getElementById("question");
+
+//take the variable created above and use .textContent to input the first quiz question 
+questionHeaderEl.textContent = quizQuestions[questionNumber].questionTitle;
+
+//console log the first question and options
+console.log(quizQuestions[0].options);
+console.log(quizQuestions[0].options.one);
+
+//variables related to each question "option", e.g. ABC or D 
+var questionOptionOne = document.getElementById("optionOne");
+var questionOptionTwo = document.getElementById("optionTwo");
+var questionOptionThree = document.getElementById("optionThree");
+var questionOptionFour = document.getElementById("optionFour");
+
+//reassigning the variable to apply to the var QuizQuestions options, or buttons. 
+questionOptionOne.textContent = quizQuestions[questionNumber].options.one;
+
+questionOptionTwo.textContent = quizQuestions[questionNumber].options.two;
+
+questionOptionThree.textContent = quizQuestions[questionNumber].options.three;
+
+questionOptionFour.textContent = quizQuestions[questionNumber].options.four;
+
+//create a method to have the (1) correct answer identified, and (2) once the answer is revealed, have the current question hide, (3) and the next question revealed 
+
+//Eventlistener, followed by a function that will (1) identify "wrong" or "correct" THEN move to the next question 
+
+questionOptionOne.addEventListener("click", selectChoice);
+
+questionOptionTwo.addEventListener("click", selectChoice);
+
+questionOptionThree.addEventListener("click", selectChoice);
+
+questionOptionFour.addEventListener("click", selectChoice);
+
+//call a function for the getNextQuestion function. This is where you will do the iterating 
+
+// function getNextQuestion() {
+//     // document.getElementById(#question).style.display = "block"; 
+//       //below syntax may be used to change the questions as they are answered. 
+//       document.getElementById(#questionBox).innerHTML = new HTML
+//input Quiz Questions variable somehow 
+//     //   var QuizQuestions = 
+}
 
 
 //Questions (iterate over the array)
 var quizQuestions = [
     {
         questionTitle: "Which geometric shape is generally used for stop signs?",
+        answer: "Octagon",
         options: {
-            a: 'Octagon',
-            b: 'Hexagon',
-            c: "Decagon",
-            d: "Heptagon",
+            one: "Octagon",
+            two: "Hexagon",
+            three: "Decagon",
+            four: "Heptagon",
         },
     },
     {
-        questionTitle: "This is a question placeholder",
+        questionTitle: "Who was the first woman to win a Nobel Prize (in 1903)?",
         options: {
-            a: 'x',
-            b: 'x',
-            c: "x",
-            d: "x",
+            one: "x",
+            two: "Marie Curie",
+            three: "x",
+            four: "x",
         }
-    }
+    },
+    {
+        questionTitle: "Who was the first woman pilot to fly solo across the Atlantic?",
+        options: {
+            one: "x",
+            two: "x",
+            three: "Amelia Earhart",
+            four: "x",
+        }
+    },
 ]
 
 
