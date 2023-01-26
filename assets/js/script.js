@@ -60,12 +60,12 @@ function startQuiz() {
     // console.log(quizQuestions[0].questionTitle);
 
     refreshQuestions();
-    
+
 }
 
 //The following four functions are only called when the associated button is clicked on, === the correct answer, as called out in the object var quizQuestions below.
 optionOne.addEventListener("click", function () {
-    if (quizQuestions[questionNumber].options.one === quizQuestions[questionNumber].answer){
+    if (quizQuestions[questionNumber].options.one === quizQuestions[questionNumber].answer) {
         console.log('Correct!');
         correctAnswers++;
     }
@@ -80,7 +80,7 @@ optionOne.addEventListener("click", function () {
 })
 
 optionTwo.addEventListener("click", function () {
-    if (quizQuestions[questionNumber].options.two === quizQuestions[questionNumber].answer){
+    if (quizQuestions[questionNumber].options.two === quizQuestions[questionNumber].answer) {
         console.log('Correct!');
         correctAnswers++;
     }
@@ -95,7 +95,7 @@ optionTwo.addEventListener("click", function () {
 })
 
 optionThree.addEventListener("click", function () {
-    if (quizQuestions[questionNumber].options.three === quizQuestions[questionNumber].answer){
+    if (quizQuestions[questionNumber].options.three === quizQuestions[questionNumber].answer) {
         console.log('Correct!');
         correctAnswers++;
     }
@@ -104,7 +104,7 @@ optionThree.addEventListener("click", function () {
         secondsLeft = secondsLeft - 10;
     }
 
-   
+
     questionNumber++;
 
     refreshQuestions();
@@ -112,7 +112,7 @@ optionThree.addEventListener("click", function () {
 })
 
 optionFour.addEventListener("click", function () {
-    if (quizQuestions[questionNumber].options.four === quizQuestions[questionNumber].answer){
+    if (quizQuestions[questionNumber].options.four === quizQuestions[questionNumber].answer) {
         console.log('Correct!');
         correctAnswers++;
     }
@@ -129,41 +129,39 @@ optionFour.addEventListener("click", function () {
 //------When a question is answered, the next question is presented------ 
 function refreshQuestions() {
     console.log(questionNumber)
-//relates to the div in HTML where the question will live
-var questionHeaderEl = document.getElementById("question");
+    //relates to the div in HTML where the question will live
+    var questionHeaderEl = document.getElementById("question");
 
-//take the variable created above and use .textContent to input the first quiz question 
-questionHeaderEl.textContent = quizQuestions[questionNumber].questionTitle;
+    //take the variable created above and use .textContent to input the first quiz question 
+    questionHeaderEl.textContent = quizQuestions[questionNumber].questionTitle;
 
-//console log the first question and options
-// console.log(quizQuestions[0].options);
-// console.log(quizQuestions[0].options.one);
+    //console log the first question and options
+    //console.log(quizQuestions[0].options);
+    //console.log(quizQuestions[0].options.one);
 
-//variables related to each question "option", e.g. ABC or D 
-var questionOptionOne = document.getElementById("optionOne");
-var questionOptionTwo = document.getElementById("optionTwo");
-var questionOptionThree = document.getElementById("optionThree");
-var questionOptionFour = document.getElementById("optionFour");
+    //variables related to each question "option", e.g. ABC or D 
+    var questionOptionOne = document.getElementById("optionOne");
+    var questionOptionTwo = document.getElementById("optionTwo");
+    var questionOptionThree = document.getElementById("optionThree");
+    var questionOptionFour = document.getElementById("optionFour");
 
-//reassigning the variable to apply to the var QuizQuestions options, or buttons. 
-questionOptionOne.textContent = quizQuestions[questionNumber].options.one;
-questionOptionTwo.textContent = quizQuestions[questionNumber].options.two;
-questionOptionThree.textContent = quizQuestions[questionNumber].options.three;
-questionOptionFour.textContent = quizQuestions[questionNumber].options.four;
-
-
-//Eventlistener, followed by a function that will (1) identify "wrong" or "correct" THEN move to the next question 
-questionOptionOne.addEventListener("click", selectChoice);
-questionOptionTwo.addEventListener("click", selectChoice);
-questionOptionThree.addEventListener("click", selectChoice);
-questionOptionFour.addEventListener("click", selectChoice);
+    //reassigning the variable to apply to the var QuizQuestions options, or buttons. 
+    questionOptionOne.textContent = quizQuestions[questionNumber].options.one;
+    questionOptionTwo.textContent = quizQuestions[questionNumber].options.two;
+    questionOptionThree.textContent = quizQuestions[questionNumber].options.three;
+    questionOptionFour.textContent = quizQuestions[questionNumber].options.four;
 
 
+    //Eventlistener, followed by a function that will (1) identify "wrong" or "correct" THEN move to the next question 
+    questionOptionOne.addEventListener("click", selectChoice);
+    questionOptionTwo.addEventListener("click", selectChoice);
+    questionOptionThree.addEventListener("click", selectChoice);
+    questionOptionFour.addEventListener("click", selectChoice);
 
 }
 
 
-//Quiz Questions (iterate over the array)
+//Quiz Questions (iterate over the array).  I use the var questionNumber to iterate through each question "number", i.e. the numbers in my object
 var quizQuestions = [
     {
         questionTitle: "Which geometric shape is generally used for stop signs?",
@@ -206,8 +204,6 @@ var quizQuestions = [
         }
     },
 ]
-
-
 
 
 // SIXTH The game is OVER when all questions are answered OR the timer reaches 0

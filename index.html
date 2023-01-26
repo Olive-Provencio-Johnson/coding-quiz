@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,8 +8,9 @@
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Code Quiz</title>
 </head>
+
 <body>
-        
+
     <div id="highscores">
         <button id="view-highscores">View Highscores</button>
     </div>
@@ -17,21 +19,22 @@
 
     <div id="welcome" class="start message">
         <h1>Trivia Questions!</h1>
-        <p>Try to answer the following trivia questions within the time limit. Keep in mind that each incorrect answer will penalize your score and final time by ten seconds!</p>
+        <p>Try to answer the following trivia questions within the time limit. Keep in mind that each incorrect answer
+            will penalize your score and final time by ten seconds!</p>
         <div>
             <button id="start" class="start button">Start Quiz!</button>
         </div>
     </div>
-    
 
-    <div id="quiz-container">
+
+    <div id="quiz-container" class="quizcontainer">
         <div class="quiz-box" id="questionBox" hidden>
-            <div id="question">Question</div>
-            <div id="choices">
-                <button id="optionOne" class="">A</button>
-                <button id="optionTwo" class="">B</button>
-                <button id="optionThree" class="">C</button>
-                <button id="optionFour" class="">D</button>
+            <div id="question" class="question">Question</div>
+            <div id="choices" class="choices">
+                <button id="optionOne" class="button">A</button>
+                <button id="optionTwo" class="button">B</button>
+                <button id="optionThree" class="button">C</button>
+                <button id="optionFour" class="button">D</button>
             </div>
             <div>
                 <h4 id="answerRevealed"></h4>
@@ -41,4 +44,5 @@
     <script src="./assets/js/script.js"></script>
 
 </body>
+
 </html>
