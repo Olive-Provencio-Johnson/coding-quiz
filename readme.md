@@ -6,13 +6,6 @@ This timed multiple-choice trivia quiz was created using vanilla JavaScript, HTM
 
 This application runs in the browser, and features dynamically updated HTML and CSS powered by JavaScript code.  The finished product is a clean, polished, and responsive user interface. 
 
-## What did the code focus on?
-
-```
-AS A coding boot camp student
-I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
-SO THAT I can gauge my progress compared to my peers
-```
 
 ## What was the focus? 
 
@@ -29,5 +22,9 @@ This webpage can be viewed on regular desktop browser or mobile device.
 
 ## Project Links and Screenshot
 The following image demonstrates the web application's appearance and functionality:
+![Quiz Screenshot](./assets/images/untitled.jpg)
+
+[Link to live webpage](https://olive-provencio-johnson.github.io/coding-quiz/)
+
 
 

@@ -50,6 +50,7 @@ p {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    align-content: space-between;
     padding: 30px;
     justify-content: space-between;
     background-color: #008CBA;
