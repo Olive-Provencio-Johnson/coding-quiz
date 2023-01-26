@@ -22,7 +22,7 @@ This webpage can be viewed on regular desktop browser or mobile device.
 
 ## Project Links and Screenshot
 The following image demonstrates the web application's appearance and functionality:
-![Quiz Screenshot](./assets/images/untitled.jpg)
+![Quiz Screenshot](./assets/images/Untitled.jpg)
 
 [Link to live webpage](https://olive-provencio-johnson.github.io/coding-quiz/)
 
