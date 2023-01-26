@@ -10,7 +10,7 @@ var answerRevealed = "";
 let start = document.getElementById("start");
 
 
-//FIRST:  Create start button (created in HTML)
+//------Create start button (created in HTML)------
 start.addEventListener("click", function () {
     setTime();
     startQuiz();
@@ -18,7 +18,7 @@ start.addEventListener("click", function () {
 
 })
 
-//SECOND: Start button starts a timer 
+//------Start button starts a timer ------
 function setTime() {
     var timer = document.querySelector(".timer");
 
@@ -47,7 +47,7 @@ function selectChoice() {
 }
 
 
-//THIRD: First question is presented after timer is started 
+//------First question is presented after timer is started ------
 function startQuiz() {
     console.log("you started the quiz")
     //hide welcome message once start quiz button is clicked
@@ -69,7 +69,7 @@ optionOne.addEventListener("click", function () {
         console.log('Correct!');
         correctAnswers++;
     }
-    //When a question is answered incorrectly, time is subtracted from the clock 
+    //------When a question is answered incorrectly, time is subtracted from the clock ------
     else {
         secondsLeft = secondsLeft - 10;
     }
@@ -84,7 +84,7 @@ optionTwo.addEventListener("click", function () {
         console.log('Correct!');
         correctAnswers++;
     }
-    //When a question is answered incorrectly, time is subtracted from the clock 
+    //------When a question is answered incorrectly, time is subtracted from the clock ------
     else {
         secondsLeft = secondsLeft - 10;
     }
@@ -99,7 +99,7 @@ optionThree.addEventListener("click", function () {
         console.log('Correct!');
         correctAnswers++;
     }
-    //When a question is answered incorrectly, time is subtracted from the clock 
+    //------When a question is answered incorrectly, time is subtracted from the clock ------
     else {
         secondsLeft = secondsLeft - 10;
     }
@@ -116,7 +116,7 @@ optionFour.addEventListener("click", function () {
         console.log('Correct!');
         correctAnswers++;
     }
-    //When a question is answered incorrectly, time is subtracted from the clock 
+    //------When a question is answered incorrectly, time is subtracted from the clock ------
     else {
         secondsLeft = secondsLeft - 10;
     }
@@ -126,7 +126,7 @@ optionFour.addEventListener("click", function () {
 
 })
 
-//FOURTH When a question is answered, the next question is presented 
+//------When a question is answered, the next question is presented------ 
 function refreshQuestions() {
     console.log(questionNumber)
 //relates to the div in HTML where the question will live
@@ -147,36 +147,23 @@ var questionOptionFour = document.getElementById("optionFour");
 
 //reassigning the variable to apply to the var QuizQuestions options, or buttons. 
 questionOptionOne.textContent = quizQuestions[questionNumber].options.one;
-
 questionOptionTwo.textContent = quizQuestions[questionNumber].options.two;
-
 questionOptionThree.textContent = quizQuestions[questionNumber].options.three;
-
 questionOptionFour.textContent = quizQuestions[questionNumber].options.four;
 
-//create a method to have the (1) correct answer identified, and (2) once the answer is revealed, have the current question hide, (3) and the next question revealed 
 
 //Eventlistener, followed by a function that will (1) identify "wrong" or "correct" THEN move to the next question 
-
 questionOptionOne.addEventListener("click", selectChoice);
-
 questionOptionTwo.addEventListener("click", selectChoice);
-
 questionOptionThree.addEventListener("click", selectChoice);
-
 questionOptionFour.addEventListener("click", selectChoice);
 
 
-// function getNextQuestion() {
-//     // document.getElementById(#question).style.display = "block"; 
-//       //below syntax may be used to change the questions as they are answered. 
-//       document.getElementById(#questionBox).innerHTML = new HTML
-//input Quiz Questions variable somehow 
 
 }
 
 
-//Questions (iterate over the array)
+//Quiz Questions (iterate over the array)
 var quizQuestions = [
     {
         questionTitle: "Which geometric shape is generally used for stop signs?",
